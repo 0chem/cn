@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 测试页面</title>
+    <style>
+        /* 基础样式，方便查看元素布局 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .section {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .element-group {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .element-group:last-child {
+            border-bottom: none;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+        .alert {
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 HTML 全面测试页面</h1>
+    <p>包含常见 HTML 元素、表单控件、媒体、表格、脚本测试等，用于调试和验证功能</p>
+
+    <div class="container">
+        <!-- 左侧：基础元素 + 表单测试 -->
+        <div class="section">
+            <h2>1. 基础 HTML 元素</h2>
+            
+            <div class="element-group">
+                <h3>文本格式</h3>
+                <p>普通文本段落，包含 <strong>粗体</strong>、<em>斜体</em>、<u>下划线</u>、<s>删除线</s></p>
+                <p>上标：X<sup>2</sup>，下标：H<sub>2</sub>O</p>
+                <p>代码：<code>console.log("Hello World")</code></p>
+                <blockquote>引用文本：这是一段引用内容，测试 blockquote 元素</blockquote>
+            </div>
+
+            <div class="element-group">
+                <h3>列表元素</h3>
+                <h4>无序列表</h4>
+                <ul>
+                    <li>列表项 1</li>
+                    <li>列表项 2
+                        <ul>
+                            <li>子列表项 2-1</li>
+                            <li>子列表项 2-2</li>
+                        </ul>
+                    </li>
+                    <li>列表项 3</li>
+                </ul>
+
+                <h4>有序列表</h4>
+                <ol>
+                    <li>第一步</li>
+                    <li>第二步</li>
+                    <li>第三步</li>
+                </ol>
+
+                <h4>定义列表</h4>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>超文本标记语言</dd>
+                    <dt>CSS</dt>
+                    <dd>层叠样式表</dd>
+                </dl>
+            </div>
+
+            <div class="element-group">
+                <h3>链接与锚点</h3>
+                <a href="https://www.example.com" target="_blank">外部链接（新窗口打开）</a><br>
+                <a href="#top">回到顶部（锚点链接）</a><br>
+                <a href="mailto:test@example.com">邮件链接</a><br>
+                <a href="tel:123456789">电话链接</a>
+            </div>
+
+            <h2>2. 表单控件测试</h2>
+            
+            <div class="element-group">
+                <form id="testForm">
+                    <label for="textInput">单行文本输入：</label>
+                    <input type="text" id="textInput" placeholder="请输入文本" value="默认值">
+
+                    <label for="passwordInput">密码输入：</label>
+                    <input type="password" id="passwordInput" placeholder="请输入密码">
+
+                    <label for="numberInput">数字输入：</label>
+                    <input type="number" id="numberInput" min="0" max="100" value="50">
+
+                    <label for="dateInput">日期选择：</label>
+                    <input type="date" id="dateInput">
+
+                    <label for="selectInput">下拉选择：</label>
+                    <select id="selectInput">
+                        <option value="">请选择</option>
+                        <option value="1" selected>选项 1</option>
+                        <option value="2">选项 2</option>
+                        <option value="3">选项 3</option>
+                    </select>
+
+                    <label>单选按钮：</label>
+                    <input type="radio" name="radioGroup" id="radio1" value="a" checked>
+                    <label for="radio1" style="display: inline;">选项 A</label>
+                    <input type="radio" name="radioGroup" id="radio2" value="b">
+                    <label for="radio2" style="display: inline;">选项 B</label>
+
+                    <label>复选框：</label>
+                    <input type="checkbox" id="check1" value="x" checked>
+                    <label for="check1" style="display: inline;">选项 X</label>
+                    <input type="checkbox" id="check2" value="y">
+                    <label for="check2" style="display: inline;">选项 Y</label>
+
+                    <label for="textareaInput">多行文本框：</label>
+                    <textarea id="textareaInput" rows="4" placeholder="请输入多行文本">默认多行文本
+第二行内容</textarea>
+
+                    <label for="fileInput">文件上传：</label>
+                    <input type="file" id="fileInput" multiple>
+
+                    <button type="button" onclick="alertFormData()">获取表单值</button>
+                    <button type="reset">重置表单</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 右侧：媒体 + 表格 + 脚本 + 其他元素 -->
+        <div class="section">
+            <h2>3. 媒体元素测试</h2>
+            
+            <div class="element-group">
+                <h3>图片测试</h3>
+                <p>正常图片：</p>
+                <img src="https://picsum.photos/400/200" alt="测试图片" title="测试图片">
+                <p>图片加载失败（显示alt文本）：</p>
+                <img src="invalid-image-url.jpg" alt="图片加载失败" width="400" height="200">
+            </div>
+
+            <div class="element-group">
+                <h3>音频测试</h3>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    您的浏览器不支持音频播放
+                </audio>
+            </div>
+
+            <div class="element-group">
+                <h3>视频测试</h3>
+                <video controls width="100%" poster="https://picsum.photos/400/225">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+
+            <h2>4. 表格测试</h2>
+            
+            <div class="element-group">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>名称</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>测试项 1</td>
+                            <td>正常</td>
+                            <td><button type="button" style="width: auto; padding: 4px 8px;">编辑</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>测试项 2</td>
+                            <td>异常</td>
+                            <td><button type="button" style="width: auto; padding: 4px 8px;">编辑</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">合并列</td>
+                            <td colspan="2">合并列内容</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>5. 脚本与交互测试</h2>
+            
+            <div class="element-group">
+                <h3>JavaScript 测试</h3>
+                <button type="button" onclick="showCurrentTime()">显示当前时间</button>
+                <p id="timeDisplay"></p>
+
+                <div class="code-block">
+                    // 测试代码示例
+                    function showCurrentTime() {
+                        const now = new Date();
+                        document.getElementById('timeDisplay').textContent = '当前时间：' + now.toLocaleString();
+                    }
+                </div>
+            </div>
+
+            <div class="element-group">
+                <h3>提示框测试</h3>
+                <button type="button" onclick="alert('普通提示框')">普通提示框</button>
+                <button type="button" onclick="confirm('确认框测试？')">确认框</button>
+                <button type="button" onclick="prompt('输入框测试：请输入姓名')">输入框</button>
+            </div>
+
+            <div class="element-group">
+                <h3>状态提示框</h3>
+                <div class="alert alert-success">成功提示：操作完成</div>
+                <div class="alert alert-warning">警告提示：请注意数据格式</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 表单数据获取函数
+        function alertFormData() {
+            const textVal = document.getElementById('textInput').value;
+            const numberVal = document.getElementById('numberInput').value;
+            const selectVal = document.getElementById('selectInput').value;
+            const radioVal = document.querySelector('input[name="radioGroup"]:checked')?.value || '未选择';
+            const checkVals = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+            alert(`表单数据：
+文本输入：${textVal}
+数字输入：${numberVal}
+下拉选择：${selectVal}
+单选按钮：${radioVal}
+复选框：${checkVals.join(', ')}`);
+        }
+
+        // 显示当前时间函数
+        function showCurrentTime() {
+            const now = new Date();
+            document.getElementById('timeDisplay').textContent = '当前时间：' + now.toLocaleString('zh-CN');
+        }
+
+        // 页面加载完成后执行
+        window.onload = function() {
+            console.log('HTML 测试页面加载完成');
+            // 自动填充当前日期
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('dateInput').value = today;
+        };
+    </script>
+</body>
+</html>
